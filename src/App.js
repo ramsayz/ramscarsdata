@@ -61,7 +61,7 @@ axios.get("https://rams-cardata.herokuapp.com/read").then(resp=>{console.log(res
 }
 //////////////////////////////////////////RETURN
   return (
-    <div className="App">
+    <div className="App"> 
       <Typography style={{fontSize:"50px",backgroundColor:"pink"}}>Car cost index - de Ram's</Typography>
       {/* <Paper style={{height:'200px',margin:"5%"}}> */}
         <Grid container justify="center" spacing="1" style={{height:'200px',marginTop:"2%"}} >
