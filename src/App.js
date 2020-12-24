@@ -8,7 +8,7 @@ function App() {
   const [carsList,setCarsList]=useState([])
 
   useEffect(()=>{
-axios.get("http://localhost:9002/read").then(resp=>{console.log(resp.data)
+axios.get("https://rams-cardata.herokuapp.com/read").then(resp=>{console.log(resp.data)
   setCarsList(resp.data)}).catch((err)=>{
     console.log(err)
   })
@@ -21,7 +21,7 @@ axios.get("http://localhost:9002/read").then(resp=>{console.log(resp.data)
     //alert(newCost.match('/^[0-9]+$/'))
         if(newCost!=null&&newCost!=''&&Number(newCost)!==0){
       
-      axios.put("http://localhost:9002/update",{id:id,cost:newCost}).then(()=>{
+      axios.put("https://rams-cardata.herokuapp.com/update",{id:id,cost:newCost}).then(()=>{
       alert("Cost updated...")
       setCarsList(carsList.map(car=>{
         if(car._id==id){
@@ -37,7 +37,7 @@ axios.get("http://localhost:9002/read").then(resp=>{console.log(resp.data)
   const handleDelete=(id)=>{
     console.log(id)
     
-       axios.delete(`http://localhost:9002/delete/${id}`).then(()=>{
+       axios.delete(`https://rams-cardata.herokuapp.com/delete/${id}`).then(()=>{
         alert("Deleted.")
         setCarsList(carsList.filter(car=>{
           return car._id!==id
@@ -51,7 +51,7 @@ axios.get("http://localhost:9002/read").then(resp=>{console.log(resp.data)
   ///////////////////////SUBMIT HANDLER
   const handleSubmit=()=>{
     console.log(modelName," ",modelCost)
-      axios.post("http://localhost:9002/insert",{model:modelName,cost:modelCost}).then((resp)=>{
+      axios.post("https://rams-cardata.herokuapp.com/insert",{model:modelName,cost:modelCost}).then((resp)=>{
         console.log(resp.data)
         setCarsList([...carsList,{_id:resp.data._id,name:modelName,cost:modelCost}])
         alert('Car added. Thank you.')
