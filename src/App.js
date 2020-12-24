@@ -84,7 +84,7 @@ axios.get("https://rams-cardata.herokuapp.com/read").then(resp=>{console.log(res
         </Grid>
         <hr></hr>
         <Typography style={{marginTop:'2%'}}>List of owned cars with prices..</Typography>
-      <Card style={{paddingLeft:'5%',paddingRight:'5%',marginLeft:'25%',width:'50%',height:'300px',overflowY:'auto',overflowX:'auto'}}>
+      <Card style={{paddingLeft:'5%',paddingRight:'5%',marginLeft:'15%',width:'50%',height:'300px',overflowY:'auto',overflowX:'auto'}}>
       {carsList.length!==0?<><Table >
   <TableHead >
     <TableCell><u><b>Car Model Name</b></u></TableCell>
