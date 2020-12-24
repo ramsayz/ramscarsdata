@@ -1,4 +1,4 @@
-import {Button, Card, Grid, Paper, Table, TableCell, TableHead, TableRow, TextField, Typography} from "@material-ui/core"
+import {Button, Card, Grid,  Table, TableCell, TableHead, TableRow, TextField, Typography} from "@material-ui/core"
 import { useEffect, useState } from "react";
 import './App.css';
 import axios from 'axios'
@@ -19,12 +19,12 @@ axios.get("https://rams-cardata.herokuapp.com/read").then(resp=>{console.log(res
   const handleUpdate=(id)=>{
     const newCost=prompt("Enter the new cost:")
     //alert(newCost.match('/^[0-9]+$/'))
-        if(newCost!=null&&newCost!=''&&Number(newCost)!==0){
+        if(newCost!==null&&newCost!==''&&Number(newCost)!==0){
       
       axios.put("https://rams-cardata.herokuapp.com/update",{id:id,cost:newCost}).then(()=>{
       alert("Cost updated...")
       setCarsList(carsList.map(car=>{
-        if(car._id==id){
+        if(car._id===id){
           return {...car,cost:Number(newCost)}
         }
         return car
